@@ -30,16 +30,14 @@ const CircularButton = ({ className, children, disabled, icon, priority, type, .
 
   return (
     <label className={`np-circular-btn ${priority} ${type}`}>
-      <span className="np-circular-btn__btn">
-        <input
-          type="button"
-          aria-label={children}
-          className={classes}
-          disabled={disabled}
-          {...rest}
-        />
-        {iconEl}
-      </span>
+      <input
+        type="button"
+        aria-label={children}
+        className={classes}
+        disabled={disabled}
+        {...rest}
+      />
+      {iconEl}
       <span className="np-circular-btn__label">{children}</span>
     </label>
   );

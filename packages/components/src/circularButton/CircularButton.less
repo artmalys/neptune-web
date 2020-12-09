@@ -4,9 +4,7 @@
     align-items: center;
     cursor: pointer;
 
-    .np-circular-btn__btn {
-        position: relative;
-    }
+    position: relative;
 
     input[type="button"] {
         min-height: var(--size-40);
@@ -20,7 +18,6 @@
     .tw-icon {
         position: absolute;
         top: 8px;
-        left: 8px;
         pointer-events: none;
         color: white;
     }
@@ -30,9 +27,7 @@
     font-weight: 600;
     font-family: inherit;
 
-    .np-circular-btn.accent & {
-        color: var(--color-control-accent);
-    }
+    transition: all .15s ease-in-out;
 
     .np-circular-btn.positive & {
         color: var(--color-control-positive);
@@ -40,5 +35,39 @@
 
     .np-circular-btn.negative & {
         color: var(--color-control-negative);
+    }
+}
+
+.label-state-colours(accent,
+    var(--color-control-accent),
+    var(--color-control-accent-hover),
+    var(--color-control-accent-active));
+
+.label-state-colours(positive,
+    var(--color-control-positive),
+    var(--color-control-positive-hover),
+    var(--color-control-positive-active));
+
+.label-state-colours(negative,
+    var(--color-control-negative),
+    var(--color-control-negative-hover),
+    var(--color-control-negative-active));
+
+.label-state-colours(@type, @normal, @hover, @active) {
+  .np-circular-btn {
+        &.@{type} {
+            .np-circular-btn__label {
+                color: @normal;
+            }
+            &:hover .np-circular-btn__label,
+            input[type="button"]:focus ~ .np-circular-btn__label {
+                color: @hover;
+            }
+
+            &:active .np-circular-btn__label,
+            input[type="button"]:active ~ .np-circular-btn__label {
+                color: @active;
+            }
+        }
     }
 }
