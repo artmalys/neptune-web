@@ -1,6 +1,6 @@
 {
-  "neptune.CloseButton.ariaLabel": "Close",
-  "neptune.Pagination.ariaLabel": "Pagination navigation",
-  "neptune.PaginationLink.ariaLabel.active": "Go to page {pageNumber}",
-  "neptune.PaginationLink.ariaLabel.inactive": "Current page, page {pageNumber}"
+  "neptune.CloseButton.ariaLabel": "Kapat",
+  "neptune.Pagination.ariaLabel": "Sayfalandırma gezintisi",
+  "neptune.PaginationLink.ariaLabel.active": "{pageNumber} numaralı sayfaya git",
+  "neptune.PaginationLink.ariaLabel.inactive": "Mevcut sayfa, sayfa {pageNumber}"
 }
