@@ -126,17 +126,21 @@ Button.propTypes = {
   loading: Types.bool,
   // eslint-disable-next-line
   onClick: requiredIf(Types.func, (props) => props.htmlType !== 'submit'),
-  priority: Types.oneOf([Priority.PRIMARY, Priority.SECONDARY, Priority.TERTIARY]),
+  priority: Types.oneOf([
+    Button.Priority.PRIMARY,
+    Button.Priority.SECONDARY,
+    Button.Priority.TERTIARY,
+  ]),
   /** @DEPRECATED Type.PRIMARY, Type.PAY, Type.SECONDARY, Type.DANGER, Type.LINK */
   type: Types.oneOf([
-    ControlType.ACCENT,
-    ControlType.POSITIVE,
-    ControlType.NEGATIVE,
-    Type.PRIMARY,
-    Type.PAY,
-    Type.SECONDARY,
-    Type.DANGER,
-    Type.LINK,
+    Button.Type.ACCENT,
+    Button.Type.POSITIVE,
+    Button.Type.NEGATIVE,
+    Button.Type.PRIMARY,
+    Button.Type.PAY,
+    Button.Type.SECONDARY,
+    Button.Type.DANGER,
+    Button.Type.LINK,
   ]),
   /** @DEPRECATED Size.EXTRA_SMALL */
   size: Types.oneOf([Size.EXTRA_SMALL, Size.SMALL, Size.MEDIUM, Size.LARGE]),
