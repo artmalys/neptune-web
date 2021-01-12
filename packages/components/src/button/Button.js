@@ -143,7 +143,12 @@ Button.propTypes = {
     Button.Type.LINK,
   ]),
   /** @DEPRECATED Size.EXTRA_SMALL */
-  size: Types.oneOf([Size.EXTRA_SMALL, Size.SMALL, Size.MEDIUM, Size.LARGE]),
+  size: Types.oneOf([
+    Button.Size.EXTRA_SMALL,
+    Button.Size.SMALL,
+    Button.Size.MEDIUM,
+    Button.Size.LARGE,
+  ]),
 };
 
 Button.defaultProps = {
