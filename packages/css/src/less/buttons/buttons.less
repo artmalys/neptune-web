@@ -12,6 +12,8 @@
   vertical-align: middle;
   touch-action: manipulation;
   cursor: pointer;
+  // @TODO Remove?
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
   white-space: nowrap;
 
@@ -55,7 +57,24 @@
   }
 }
 
-// @DEPRECATED: .btn-primary (use .btn-accent instead)
+// Button variants
+
+// @TODO Deprecate / Remove
+.btn-default {
+  .button-variant(
+      @btn-default-color;
+      #FFF;
+      @btn-default-bg;
+      @btn-default-bg-hover;
+      @btn-default-bg-active;
+      @btn-default-border;
+      @btn-default-border-hover;
+      @btn-default-border-active;
+      #FFF
+  );
+}
+
+// @DEPRECATED: .btn-primary (use Button component with type Accent)
 .btn-accent, .btn-primary {
   .button-variant(
       @color-text-control;
@@ -84,7 +103,7 @@
   }
 }
 
-// @DEPRECATED:.btn-link (use .btn-accent.btn-priority-3 instead)
+// @DEPRECATED:.btn-link (use Button component with type Accent / priority Tertiary)
 .btn-link,
 .btn-accent.btn-priority-3 {
   color: @link-color;
@@ -118,7 +137,7 @@
   }
 }
 
-// @DEPRECATED:.btn-success (use .btn-positive instead)
+// @DEPRECATED:.btn-success (use Button component with type Positive)
 .btn-positive, .btn-success {
   .button-variant(
       @color-text-control;
@@ -145,6 +164,36 @@
       @color-control-positive-active;
     );
   }
+}
+
+// @TODO Deprecate / Remove
+.btn-info {
+  .button-variant(
+      @btn-info-color;
+      #FFF;
+      @btn-info-bg;
+      @btn-info-bg-hover;
+      @btn-info-bg-active;
+      @btn-info-border;
+      @btn-info-border-hover;
+      @btn-info-border-active;
+      #FFF
+  );
+}
+
+// @TODO Deprecate / Remove
+.btn-warning {
+  .button-variant(
+      @btn-warning-color;
+      #FFF;
+      @btn-warning-bg;
+      @btn-warning-bg-hover;
+      @btn-warning-bg-active;
+      @btn-warning-border;
+      @btn-warning-border-hover;
+      @btn-warning-border-active;
+      #FFF
+  );
 }
 
 .btn-negative {
@@ -175,7 +224,7 @@
   }
 }
 
-// @DEPRECATED: .btn-danger (use .btn-negative instead)
+// @DEPRECATED: .btn-danger (use Button component with type Negative)
 .btn-danger {
   .button-variant(
       @btn-danger-color;
@@ -188,6 +237,51 @@
       @btn-danger-border-active;
       #FFF
   );
+}
+
+// @TODO Deprecate / Remove
+.bootstrap-select .btn-default,
+.btn-input {
+  .button-variant(
+      @input-color;
+      @input-color;
+      @input-bg;
+      @input-bg;
+      @input-bg;
+      @input-border;
+      @input-border;
+      @input-border-focus
+  );
+}
+
+.btn-input .caret {
+  margin-left: 8px;
+}
+
+// @TODO Deprecate / Remove
+.btn-image {
+    background-color: @brand-grey-plus-10;
+    background-color: rgba(255,255,255, 0.4);
+    color: @brand-white;
+    &:hover,
+    &:focus {
+        background-color: @brand-grey-plus-10;
+        background-color: rgba(24,33,56, 0.56);
+    }
+
+    &:active,
+    &:hover:active {
+        background: @brand-grey-minus-20;
+    }
+}
+
+// @TODO Deprecate / Remove
+.btn-inverse {
+    .button-outline(
+        @brand-white;
+        @brand-smoke-plus-10;
+        @brand-grey
+    );
 }
 
 // Sizes
@@ -250,6 +344,101 @@ input[type="button"] {
   }
 }
 
+// @TODO Deprecate / Remove
+.btn-input {
+  font-weight: @font-weight-normal;
+  padding-left: @padding-base-horizontal;
+  padding-right: @padding-base-horizontal;
+
+  &:hover {
+    border-color: @input-border-hover;
+  }
+
+  &.active,
+  &:active,
+  &.focus,
+  &:focus {
+      border-color: @input-border-focus;
+      outline: 0px none !important;
+  }
+
+  .caret {
+      color: @brand-light-blue;
+  }
+
+  &[disabled] {
+      background-color: @input-bg-disabled;
+      color: @input-color-disabled;
+
+      .caret {
+          color: @input-color-disabled;
+      }
+
+      &:hover,
+      &:focus {
+          background-color: @input-bg-disabled;
+          color: @input-color-disabled;
+      }
+  }
+
+  .form-control-placeholder {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: block;
+      width: 100%;
+  }
+  &.btn-sm {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  &.btn-lg {
+    font-size: @input-font-size-large;
+    &.btn-addon,
+    &.btn-input-inverse {
+      font-weight: @font-weight-semi-bold;
+    }
+  }
+}
+
+// @TODO Deprecate / Remove
+// input-inverse is deprecated, remove after styleguide-components updated
+.btn-input-inverse,
+.btn-addon {
+  .button-variant(
+    #FFF;
+    #FFF;
+    @brand-navy-minus-10;
+    @brand-navy-minus-20;
+    @brand-navy-minus-20;
+    @brand-navy-minus-10;
+    @brand-navy-minus-20;
+    @brand-navy-minus-20;
+    #FFF
+  );
+  &:focus {
+    outline: thin dotted rgba(255,255,255,0.7);
+  }
+}
+
+// @TODO Deprecate / Remove
+// Remove bootstrap-select rules after checking tw-currency-select
+.form-group-sm {
+    .bootstrap-select .btn-default {
+      padding: @padding-small-vertical @padding-small-horizontal;
+    }
+}
+.form-group-lg {
+    .bootstrap-select .btn-default {
+      padding: @padding-large-vertical @padding-large-horizontal;
+    }
+}
+// @TODO Deprecate / Remove
+.bootstrap-select.open > .dropdown-toggle.btn-default {
+    border-color: @input-border-focus;
+    background-color:  @input-bg;
+    color: @input-color;
+}
+
 .btn-loader {
   display: inline-block;
   height: 24px;
@@ -281,3 +470,4 @@ input[type="button"] {
     transform: rotate(360deg);
   }
 }
+

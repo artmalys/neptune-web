@@ -83,6 +83,21 @@
   }
 }
 
+// @TODO Deprecate
+.button-outline(@color, @active, @inverse) {
+    .button-variant(
+        @color;
+        @inverse;
+        transparent;
+        @color;
+        @active;
+        @color;
+        @color;
+        @active;
+        #FFF
+    );
+}
+
 .btn-sm {
   height: 32px;
 }

@@ -127,6 +127,7 @@ Button.propTypes = {
   // eslint-disable-next-line
   onClick: requiredIf(Types.func, (props) => props.htmlType !== 'submit'),
   priority: Types.oneOf([Priority.PRIMARY, Priority.SECONDARY, Priority.TERTIARY]),
+  /** @DEPRECATED Type.PRIMARY, Type.PAY, Type.SECONDARY, Type.DANGER, Type.LINK */
   type: Types.oneOf([
     ControlType.ACCENT,
     ControlType.POSITIVE,
