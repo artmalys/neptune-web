@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Types from 'prop-types';
 import { usePopper } from 'react-popper';
-
 import classnames from 'classnames';
-import { Position } from '../common';
+import throttle from 'lodash.throttle';
+import BottomSheet from './BottomSheet';
+
+import { Position, Breakpoint } from '../common';
 import './Detached.css';
+
+const THROTTLE_MS = 100;
 
 const Detached = ({
   arrow,
@@ -18,6 +22,16 @@ const Detached = ({
 }) => {
   const [arrowElement, setArrowElement] = useState(null);
   const [popperElement, setPopperElement] = useState(null);
+  const [isMobile, setIsMobile] = useState(() => window?.innerWidth < Breakpoint.SMALL);
+  const handleResize = () => {
+    setIsMobile(window?.innerWidth < Breakpoint.SMALL);
+  };
+  useEffect(() => {
+    window.addEventListener('resize', throttle(handleResize, THROTTLE_MS));
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const modifiers = [];
 
   const modifiersOptions = {
@@ -39,12 +53,14 @@ const Detached = ({
     modifiers,
   });
 
-  return (
+  return isMobile ? (
+    <BottomSheet open>{children}</BottomSheet>
+  ) : (
     <div
+      className={classnames('np-dropdown')}
       ref={setPopperElement}
       style={{ ...styles.popper, ...extraStyles }}
       {...attributes.popper}
-      className={classnames('np-dropdown')}
     >
       {arrow && <div id="arrow" ref={setArrowElement} style={styles.arrow} />}
       {children}
@@ -65,13 +81,13 @@ Detached.defaultProps = {
   fallbackPlacements: Detached.Position.TOP,
   flip: true,
   intialOpen: false,
-  offset: undefined,
+  offset: [0, 12],
   placement: Detached.Position.TOP,
 };
 
 Detached.propTypes = {
   arrow: Types.bool,
-  children: Types.element.isRequired,
+  children: Types.node.isRequired,
   fallbackPlacements: Types.arrayOf(
     Types.oneOf([
       Detached.Position.TOP,
@@ -80,7 +96,7 @@ Detached.propTypes = {
       Detached.Position.LEFT,
     ]),
   ),
-  extraStyles: Types.shapeOf({}),
+  extraStyles: Types.shape({}),
   flip: Types.bool,
   intialOpen: Types.bool,
   offset: Types.arrayOf(Types.number),
@@ -89,14 +105,6 @@ Detached.propTypes = {
     Detached.Position.RIGHT,
     Detached.Position.BOTTOM,
     Detached.Position.LEFT,
-    'top-start',
-    'top-end',
-    'bottom-start',
-    'bottom-end',
-    'right-start',
-    'right-end',
-    'left-start',
-    'left-end',
   ]),
   referenceElement: Types.shape({ current: Types.instanceOf(Element) }).isRequired,
 };
