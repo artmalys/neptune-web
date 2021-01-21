@@ -11,7 +11,7 @@ import './Popover.css';
 
 const Popover = ({ children, content, intialOpen, placement, title, arrow }) => {
   const [arrowElement, setArrowElement] = useState(null);
-  const [clientWidth] = useClientWidth({ ref: window });
+  const [clientWidth] = window ? useClientWidth({ ref: window }) : 0;
   const referenceElement = useRef(null);
   const [isClickOutside] = useIsClickOutside({ ref: referenceElement });
   const [open, setOpen] = useState(intialOpen || false);
