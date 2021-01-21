@@ -5,13 +5,11 @@ import SlidingPanel from '../../slidingPanel';
 
 const BottomSheet = ({ children, open }) => {
   return (
-    <div>
-      <Dimmer open={open} className="visible-xs hidden-sm hidden-md hidden-lg">
-        <SlidingPanel open={open} position="bottom">
-          {children}
-        </SlidingPanel>
-      </Dimmer>
-    </div>
+    <Dimmer open={open}>
+      <SlidingPanel open={open} position="bottom">
+        <div className="p-y-2 p-x-3">{children}</div>
+      </SlidingPanel>
+    </Dimmer>
   );
 };
 
