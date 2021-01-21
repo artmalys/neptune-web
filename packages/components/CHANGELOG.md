@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [32.0.3](https://github.com/transferwise/neptune-web/compare/@transferwise/components@32.0.2...@transferwise/components@32.0.3) (2021-01-14)
+
+**Note:** Version bump only for package @transferwise/components
+
+
+
+
+
+## [32.0.2](https://github.com/transferwise/neptune-web/compare/@transferwise/components@32.0.1...@transferwise/components@32.0.2) (2021-01-11)
+
+
+### Bug Fixes
+
+* correct mapLocale logic ([b7eed21](https://github.com/transferwise/neptune-web/commit/b7eed215779063d2b7f542b6fd40a68e3da60c3f))
+
+
+
+
+
+## [32.0.1](https://github.com/transferwise/neptune-web/compare/@transferwise/components@32.0.0...@transferwise/components@32.0.1) (2021-01-07)
+
+
+### Bug Fixes
+
+* not opening currency dropdown in MoneyInput component ([#753](https://github.com/transferwise/neptune-web/issues/753)) ([f0bd99f](https://github.com/transferwise/neptune-web/commit/f0bd99fecbd9f514ca13d8989d01491717f8a47e))
+
+
+
+
+
 # [32.0.0](https://github.com/transferwise/neptune-web/compare/@transferwise/components@31.5.0...@transferwise/components@32.0.0) (2020-12-16)
 
 
