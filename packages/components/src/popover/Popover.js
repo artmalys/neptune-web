@@ -1,33 +1,54 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Types from 'prop-types';
+import classnames from 'classnames';
+
+import { usePopper } from 'react-popper';
+import { Position, Breakpoint } from '../common';
+import BottomSheet from './BottomSheet';
+import { useClientWidth, useIsClickOutside } from '../common/hooks';
 
 import './Popover.css';
 
-import { Position } from '../common';
-import Detached from './Detached';
-
-const Popover = ({ children, content, fallbackPlacements, flip, intialOpen, placement, title }) => {
+const Popover = ({ children, content, intialOpen, placement, title, arrow }) => {
+  const [arrowElement, setArrowElement] = useState(null);
+  const [clientWidth] = useClientWidth({ ref: window });
   const referenceElement = useRef(null);
+  const [isClickOutside] = useIsClickOutside({ ref: referenceElement });
   const [open, setOpen] = useState(intialOpen || false);
+  const [popperElement, setPopperElement] = useState(null);
 
-  // This instance has to be stored this way so it won't change and can be removed with removeEventListener
-  const closePopoverOnOutsideClick = useCallback((event) => {
-    if (!referenceElement.current.contains(event.target)) {
+  useEffect(() => {
+    if (isClickOutside) {
       setOpen(false);
     }
-  }, []);
+  }, [isClickOutside]);
+
+  const isMobile = clientWidth && clientWidth < Breakpoint.SMALL;
+
+  const modifiers = [];
+
+  modifiers.push({ name: 'offset', options: { offset: [0, 12] } });
+  modifiers.push({ name: 'flip' });
+
+  if (arrow) {
+    modifiers.push({ name: 'arrow', options: { element: arrowElement } });
+  }
+
+  const { styles, attributes } = usePopper(referenceElement.current, popperElement, {
+    placement,
+    modifiers,
+  });
 
   const handleClick = () => {
     setOpen(!open);
   };
 
-  useEffect(() => {
-    if (open) {
-      document.addEventListener('click', closePopoverOnOutsideClick, true);
-    } else {
-      document.removeEventListener('click', closePopoverOnOutsideClick, true);
-    }
-  }, [open]);
+  const popoverContent = (
+    <div className="np-popover__content">
+      <div className="h5">{title}</div>
+      {content}
+    </div>
+  );
 
   return (
     <span ref={referenceElement} className="d-inline-block">
@@ -38,21 +59,27 @@ const Popover = ({ children, content, fallbackPlacements, flip, intialOpen, plac
         });
       })}
 
-      {open && (
-        <div className="np-popover__dropdown">
-          <Detached
-            arrow
-            extraStyles={{ maxWidth: 252 }}
-            fallbackPlacements={fallbackPlacements}
-            flip={flip}
-            placement={placement}
-            referenceElement={referenceElement}
+      <div className="np-popover">
+        {isMobile ? (
+          <BottomSheet open={open}>{popoverContent}</BottomSheet>
+        ) : (
+          <div
+            className={classnames('np-popover__dropdown', { 'np-popover__dropdown--open': open })}
+            ref={setPopperElement}
+            style={{ ...styles.popper }}
+            {...attributes.popper}
           >
-            {title && <div className="h5">{title}</div>}
-            <div className="np-popover__content m-t-1">{content}</div>
-          </Detached>
-        </div>
-      )}
+            {arrow && (
+              <div
+                className="np-popover__dropdown__arrow"
+                ref={setArrowElement}
+                style={styles.arrow}
+              />
+            )}
+            {popoverContent}
+          </div>
+        )}
+      </div>
     </span>
   );
 };
@@ -65,24 +92,16 @@ Popover.Placement = {
 };
 
 Popover.defaultProps = {
-  fallbackPlacements: [Popover.Placement.TOP],
-  flip: true,
+  arrow: true,
   intialOpen: false,
   placement: Popover.Placement.TOP,
+  title: undefined,
 };
 
 Popover.propTypes = {
+  arrow: Types.bool,
   children: Types.element.isRequired,
   content: Types.node.isRequired,
-  fallbackPlacements: Types.arrayOf(
-    Types.oneOf([
-      Popover.Placement.TOP,
-      Popover.Placement.RIGHT,
-      Popover.Placement.BOTTOM,
-      Popover.Placement.LEFT,
-    ]),
-  ),
-  flip: Types.bool,
   intialOpen: Types.bool,
   placement: Types.oneOf([
     Popover.Placement.TOP,
@@ -90,7 +109,7 @@ Popover.propTypes = {
     Popover.Placement.BOTTOM,
     Popover.Placement.LEFT,
   ]),
-  title: Types.string.isRequired,
+  title: Types.string,
 };
 
 export default Popover;
