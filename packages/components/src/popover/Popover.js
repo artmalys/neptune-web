@@ -9,7 +9,7 @@ import { useClientWidth, useIsClickOutside } from '../common/hooks';
 
 import './Popover.css';
 
-const Popover = ({ children, content, intialOpen, placement, title, arrow }) => {
+const Popover = ({ arrow, children, content, intialOpen, placement, title }) => {
   const [arrowElement, setArrowElement] = useState(null);
   const [clientWidth] = window ? useClientWidth({ ref: window }) : 0;
   const referenceElement = useRef(null);
@@ -31,7 +31,7 @@ const Popover = ({ children, content, intialOpen, placement, title, arrow }) => 
   modifiers.push({ name: 'flip' });
 
   if (arrow) {
-    modifiers.push({ name: 'arrow', options: { element: arrowElement } });
+    modifiers.push({ name: 'arrow', options: { padding: 5, element: arrowElement } });
   }
 
   const { styles, attributes } = usePopper(referenceElement.current, popperElement, {
