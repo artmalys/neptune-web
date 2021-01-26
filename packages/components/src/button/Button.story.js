@@ -31,7 +31,7 @@ export const basic = () => {
   );
 };
 
-export const vairants = () => {
+export const variants = () => {
   const size = select('size', Object.values(Button.Size), Button.Size.SMALL);
   const htmlType = select('htmlType', ['button', 'submit', 'reset'], 'button');
   const disabled = boolean('disabled', false);
@@ -68,7 +68,31 @@ export const vairants = () => {
         <Button priority={Button.Priority.PRIMARY} type={Button.Type.NEGATIVE} {...commonProps} />
         <Button priority={Button.Priority.SECONDARY} type={Button.Type.NEGATIVE} {...commonProps} />
       </div>
+    </>
+  );
+};
 
+export const deprecated = () => {
+  const size = select('size', Object.values(Button.Size), Button.Size.SMALL);
+  const htmlType = select('htmlType', ['button', 'submit', 'reset'], 'button');
+  const disabled = boolean('disabled', false);
+  const loading = boolean('loading', false);
+  const block = boolean('block', false);
+  const buttonText = text('buttonText', 'Button text');
+
+  const commonProps = {
+    children: buttonText,
+    className: 'm-r-2',
+    size,
+    disabled,
+    loading,
+    block,
+    htmlType,
+    onClick: action('Button Clicked'),
+  };
+
+  return (
+    <>
       <div className="m-b-2 m-t-4">
         <div className="h3 m-b-1">DEPRECATED</div>
         <div className="h4 m-b-1">Primary</div>

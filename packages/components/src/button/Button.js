@@ -2,19 +2,11 @@ import React from 'react';
 import Types from 'prop-types';
 import classNames from 'classnames';
 import requiredIf from 'react-required-if';
-import { logActionRequiredIf } from '../utilities';
 
 import './Button.css';
 
 import { Size, ControlType, Priority, Type } from '../common';
-
-const deprecatedTypeMap = {
-  [Type.PRIMARY]: ControlType.ACCENT,
-  [Type.SECONDARY]: ControlType.ACCENT,
-  [Type.LINK]: ControlType.ACCENT,
-  [Type.PAY]: ControlType.POSITIVE,
-  [Type.DANGER]: ControlType.NEGATIVE,
-};
+import { establishNewPriority, establishNewType, logDeprecationNotices } from './legacyUtils';
 
 const typeClassMap = {
   [ControlType.ACCENT]: 'btn-accent',
@@ -28,25 +20,6 @@ const priorityClassMap = {
   [Priority.TERTIARY]: 'btn-priority-3',
 };
 
-const oldTypePriorityMap = {
-  [Type.DANGER]: Priority.SECONDARY,
-  [Type.LINK]: Priority.TERTIARY,
-  [Type.SECONDARY]: Priority.SECONDARY,
-};
-
-const establishPriority = ({ rawPriority, rawType, type }) => {
-  // The old SECONDARY and LINK types now map to priorities. If they're still using one of
-  // these old types, ignore whatever priority they've passed and use this instead.
-  if (oldTypePriorityMap[rawType]) {
-    return oldTypePriorityMap[rawType];
-  }
-  // Only ControlType.ACCENT supports tertiary styles
-  if (rawPriority === Priority.TERTIARY && type !== ControlType.ACCENT) {
-    return Priority.SECONDARY;
-  }
-  return rawPriority;
-};
-
 const Button = (props) => {
   const {
     block,
@@ -55,16 +28,16 @@ const Button = (props) => {
     disabled,
     htmlType,
     loading,
-    priority: rawPriority,
+    priority,
     size,
-    type: rawType,
+    type,
     ...rest
   } = props;
 
-  logActionRequired(props);
+  logDeprecationNotices(props);
 
-  const type = deprecatedTypeMap[rawType] || rawType;
-  const priority = establishPriority({ type, rawPriority, rawType });
+  const newType = establishNewType(type);
+  const newPriority = establishNewPriority(priority, type);
 
   const classes = classNames(
     `btn btn-${size}`,
@@ -73,8 +46,8 @@ const Button = (props) => {
       'btn-loading': loading,
       'btn-block np-btn-block': block,
     },
-    typeClassMap[type],
-    priorityClassMap[priority],
+    typeClassMap[newType],
+    priorityClassMap[newPriority],
     className,
   );
 
@@ -86,27 +59,6 @@ const Button = (props) => {
     </button>
   );
 };
-
-const deprecatedTypeMapMessage = {
-  [Type.DANGER]: 'Button.Type.NEGATIVE',
-  [Type.LINK]: 'Button.Type.ACCENT with priority Button.Priority.TERTIARY',
-  [Type.PAY]: 'Button.Type.POSITIVE',
-  [Type.PRIMARY]: 'Button.Type.ACCENT',
-  [Type.SECONDARY]: 'Button.Type.ACCENT with priority Button.Priority.SECONDARY',
-};
-
-const deprecatedTypes = Object.keys(deprecatedTypeMap);
-
-function logActionRequired({ size, type }) {
-  logActionRequiredIf(
-    'Button has deprecated the `Button.Size.EXTRA_SMALL` value for the `size` prop. Please use Button.Size.SMALL instead.',
-    size === Size.EXTRA_SMALL,
-  );
-  logActionRequiredIf(
-    `Button has deprecated the ${type} value for the \`type\` prop. Please update to ${deprecatedTypeMapMessage[type]}.`,
-    deprecatedTypes.includes(type),
-  );
-}
 
 Button.Priority = Priority;
 Button.Type = { ...Type, ...ControlType };
