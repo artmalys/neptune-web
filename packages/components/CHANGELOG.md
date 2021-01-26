@@ -3,6 +3,117 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [33.0.1](https://github.com/transferwise/neptune-web/compare/@transferwise/components@33.0.0...@transferwise/components@33.0.1) (2021-01-25)
+
+
+### Bug Fixes
+
+* simplify RadioButton HTML by using a span ([#767](https://github.com/transferwise/neptune-web/issues/767)) ([fb4a6e4](https://github.com/transferwise/neptune-web/commit/fb4a6e4ac4084b71eb560548d7742168aa17a362))
+
+
+
+
+
+# [33.0.0](https://github.com/transferwise/neptune-web/compare/@transferwise/components@32.0.3...@transferwise/components@33.0.0) (2021-01-22)
+
+
+* refactor!: improving FlowNavigation and Checkbox (#765) ([d52212d](https://github.com/transferwise/neptune-web/commit/d52212d13e9c822e7c1d24e5dc4d4bf49ac14814)), closes [#765](https://github.com/transferwise/neptune-web/issues/765) [#724](https://github.com/transferwise/neptune-web/issues/724)
+
+
+### BREAKING CHANGES
+
+* FlowNavigation refactor
+- removed avatarURL and profileType props, replaced with avatar prop
+- removed done prop
+- removed theme prop
+* CheckboxButton now requires an onChange handler, and people using it directly should provide an aria-label
+
+* test: update test
+
+Co-authored-by: andreapiras <16908937+andreapiras@users.noreply.github.com>
+
+
+
+
+
+## [32.0.3](https://github.com/transferwise/neptune-web/compare/@transferwise/components@32.0.2...@transferwise/components@32.0.3) (2021-01-14)
+
+**Note:** Version bump only for package @transferwise/components
+
+
+
+
+
+## [32.0.2](https://github.com/transferwise/neptune-web/compare/@transferwise/components@32.0.1...@transferwise/components@32.0.2) (2021-01-11)
+
+
+### Bug Fixes
+
+* correct mapLocale logic ([b7eed21](https://github.com/transferwise/neptune-web/commit/b7eed215779063d2b7f542b6fd40a68e3da60c3f))
+
+
+
+
+
+## [32.0.1](https://github.com/transferwise/neptune-web/compare/@transferwise/components@32.0.0...@transferwise/components@32.0.1) (2021-01-07)
+
+
+### Bug Fixes
+
+* not opening currency dropdown in MoneyInput component ([#753](https://github.com/transferwise/neptune-web/issues/753)) ([f0bd99f](https://github.com/transferwise/neptune-web/commit/f0bd99fecbd9f514ca13d8989d01491717f8a47e))
+
+
+
+
+
+# [32.0.0](https://github.com/transferwise/neptune-web/compare/@transferwise/components@31.5.0...@transferwise/components@32.0.0) (2020-12-16)
+
+
+* feat!: internalization support (#674) ([aa9750d](https://github.com/transferwise/neptune-web/commit/aa9750de9268d928365fd49ad8f5379bb6e858b7)), closes [#674](https://github.com/transferwise/neptune-web/issues/674)
+
+
+### BREAKING CHANGES
+
+* - use `Provider` component
+- provide `react-intl` v5.x.x
+
+
+
+
+
+## [31.4.2](https://github.com/transferwise/neptune-web/compare/@transferwise/components@31.4.1...@transferwise/components@31.4.2) (2020-12-14)
+
+
+### Bug Fixes
+
+* improve UX of file uploading step in Upload component ([#729](https://github.com/transferwise/neptune-web/issues/729)) ([574648b](https://github.com/transferwise/neptune-web/commit/574648be21d2056418631d2e6d9e04d686c1715a))
+
+
+
+
+
+## [31.4.1](https://github.com/transferwise/neptune-web/compare/@transferwise/components@31.4.0...@transferwise/components@31.4.1) (2020-12-10)
+
+
+### Bug Fixes
+
+* fixed Avatar hover state in NavigationOption ([#725](https://github.com/transferwise/neptune-web/issues/725)) ([1ad51a0](https://github.com/transferwise/neptune-web/commit/1ad51a09ae62eaea906474cd826ae580e17a88da))
+
+
+
+
+
+# [31.4.0](https://github.com/transferwise/neptune-web/compare/@transferwise/components@31.3.5...@transferwise/components@31.4.0) (2020-12-09)
+
+
+### Features
+
+* add support for content adaptive container of Modal component and allow to show DOM over it's footer ([#709](https://github.com/transferwise/neptune-web/issues/709)) ([6694996](https://github.com/transferwise/neptune-web/commit/66949963e5dc151e27aab96dddb20f9264ff859b))
+
+
+
+
+
 ## [31.3.5](https://github.com/transferwise/neptune-web/compare/@transferwise/components@31.3.4...@transferwise/components@31.3.5) (2020-12-07)
 
 **Note:** Version bump only for package @transferwise/components

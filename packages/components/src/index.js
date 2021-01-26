@@ -1,5 +1,6 @@
 import '@transferwise/icons/lib/styles/main.min.css';
 
+export { default as Provider } from './provider';
 export { default as Badge } from './badge';
 export { default as Checkbox } from './checkbox';
 export { default as CheckboxButton } from './checkboxButton';
@@ -56,3 +57,4 @@ export { default as Switch } from './switch';
 export { default as Decision } from './decision';
 export { default as Nudge } from './nudge';
 export { default as InlineAlert } from './inlineAlert';
+export { default as Logo } from './common/logo';
