@@ -145,7 +145,10 @@ describe('Button', () => {
 
   describe('alternative states', () => {
     it('renders as loading if loading is true', () => {
-      expect(render(<Button {...props} loading />).container).toMatchSnapshot();
+      const { container } = render(<Button {...props} loading />);
+      expect(container).toMatchSnapshot();
+
+      expect(container.querySelector('.btn-loader')).toBeInTheDocument();
     });
 
     it('renders as block if block is true', () => {
