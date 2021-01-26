@@ -9,10 +9,12 @@ export const useClientWidth = ({ ref, throttleMs = THROTTLE_MS }) => {
   const [clientWidth, setClientWidth] = useState(null);
 
   const updateClientWidth = () => {
-    if (window && ref === window) {
-      setClientWidth(window.innerWidth);
-    } else if (ref && ref.current) {
-      setClientWidth(ref.current.clientWidth);
+    if (ref) {
+      if (ref.innerWidth) {
+        setClientWidth(ref.innerWidth);
+      } else if (ref.current) {
+        setClientWidth(ref.current.clientWidth);
+      }
     }
   };
 
