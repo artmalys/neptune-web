@@ -45,7 +45,7 @@ CircularButton.propTypes = {
 };
 
 CircularButton.defaultProps = {
-  className: undefined,
+  className: '',
   disabled: false,
   priority: CircularButton.Priority.PRIMARY,
   type: CircularButton.Type.ACCENT,
