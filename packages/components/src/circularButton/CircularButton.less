@@ -2,6 +2,7 @@
     display: inline-flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     cursor: pointer;
 
     position: relative;
@@ -20,6 +21,8 @@
         top: 8px;
         pointer-events: none;
         color: white;
+
+        transition: color .15s ease-in-out;
     }
 }
 
@@ -27,15 +30,7 @@
     font-weight: 600;
     font-family: inherit;
 
-    transition: all .15s ease-in-out;
-
-    .np-circular-btn.positive & {
-        color: var(--color-control-positive);
-    }
-
-    .np-circular-btn.negative & {
-        color: var(--color-control-negative);
-    }
+    transition: color .15s ease-in-out;
 }
 
 .label-state-colours(accent,
@@ -56,14 +51,18 @@
 .label-state-colours(@type, @normal, @hover, @active) {
   .np-circular-btn {
         &.@{type} {
+            &.secondary .tw-icon,
             .np-circular-btn__label {
                 color: @normal;
             }
+
+            &.secondary:hover .tw-icon,
             &:hover .np-circular-btn__label,
             input[type="button"]:focus ~ .np-circular-btn__label {
                 color: @hover;
             }
 
+            &.secondary:active .tw-icon,
             &:active .np-circular-btn__label,
             input[type="button"]:active ~ .np-circular-btn__label {
                 color: @active;

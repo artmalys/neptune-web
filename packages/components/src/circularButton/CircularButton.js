@@ -2,34 +2,18 @@ import React, { cloneElement } from 'react';
 import Types from 'prop-types';
 import classNames from 'classnames';
 
+import { ControlType, Priority } from '../common';
+import { typeClassMap, priorityClassMap } from '../button/classMap';
+
 import './CircularButton.css';
 
-const Type = {
-  ACCENT: 'accent',
-  POSITIVE: 'positive',
-  NEGATIVE: 'negative',
-};
-
-const Priority = {
-  PRIMARY: 'primary',
-  SCONDARY: 'secondary',
-};
-
 const CircularButton = ({ className, children, disabled, icon, priority, type, ...rest }) => {
-  const classes = classNames(
-    'btn',
-    {
-      'btn-primary': type === Type.ACCENT,
-      'btn-success': type === Type.POSITIVE,
-      'btn-danger': type === Type.NEGATIVE,
-    },
-    className,
-  );
+  const classes = classNames('btn np-btn', typeClassMap[type], priorityClassMap[priority]);
 
   const iconEl = icon.props.size !== 24 ? cloneElement(icon, { size: 24 }) : icon;
 
   return (
-    <label className={`np-circular-btn ${priority} ${type}`}>
+    <label className={`np-circular-btn ${priority} ${type} ${className}`}>
       <input
         type="button"
         aria-label={children}
@@ -43,24 +27,28 @@ const CircularButton = ({ className, children, disabled, icon, priority, type, .
   );
 };
 
-CircularButton.Type = Type;
 CircularButton.Priority = Priority;
+CircularButton.Type = ControlType;
 
 CircularButton.propTypes = {
   className: Types.string,
   children: Types.string.isRequired,
   disabled: Types.bool,
   icon: Types.element.isRequired,
-  priority: Types.oneOf(Object.values(Priority)),
-  type: Types.oneOf(Object.values(Type)),
   onClick: Types.func.isRequired,
+  priority: Types.oneOf([CircularButton.Priority.PRIMARY, CircularButton.Priority.SECONDARY]),
+  type: Types.oneOf([
+    CircularButton.Type.ACCENT,
+    CircularButton.Type.POSITIVE,
+    CircularButton.Type.NEGATIVE,
+  ]),
 };
 
 CircularButton.defaultProps = {
   className: undefined,
+  disabled: false,
   priority: CircularButton.Priority.PRIMARY,
   type: CircularButton.Type.ACCENT,
-  disabled: false,
 };
 
 export default CircularButton;

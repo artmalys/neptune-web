@@ -33,3 +33,74 @@ export const basic = () => {
     </CircularButton>
   );
 };
+
+export const variants = () => {
+  const icon = select('icon', ['freeze', 'plus', 'whatsapp'], 'freeze');
+  const disabled = boolean('disabled', false);
+  const label = text('label', 'Button text');
+
+  const commonProps = {
+    label,
+    className: 'm-r-2',
+    disabled,
+    icon: icons[icon],
+    onClick: action('Button Clicked'),
+  };
+
+  return (
+    <>
+      <div className="m-b-2">
+        <div className="h4 m-b-1">Accent</div>
+        <CircularButton
+          priority={CircularButton.Priority.PRIMARY}
+          type={CircularButton.Type.ACCENT}
+          {...commonProps}
+        >
+          {label}
+        </CircularButton>
+        <CircularButton
+          priority={CircularButton.Priority.SECONDARY}
+          type={CircularButton.Type.ACCENT}
+          {...commonProps}
+        >
+          {label}
+        </CircularButton>
+      </div>
+      <div className="m-b-2">
+        <div className="h4 m-b-1">Positive</div>
+        <CircularButton
+          priority={CircularButton.Priority.PRIMARY}
+          type={CircularButton.Type.POSITIVE}
+          {...commonProps}
+        >
+          {label}
+        </CircularButton>
+
+        <CircularButton
+          priority={CircularButton.Priority.SECONDARY}
+          type={CircularButton.Type.POSITIVE}
+          {...commonProps}
+        >
+          {label}
+        </CircularButton>
+      </div>
+      <div className="m-b-2">
+        <div className="h4 m-b-1">Negative</div>
+        <CircularButton
+          priority={CircularButton.Priority.PRIMARY}
+          type={CircularButton.Type.NEGATIVE}
+          {...commonProps}
+        >
+          {label}
+        </CircularButton>
+        <CircularButton
+          priority={CircularButton.Priority.SECONDARY}
+          type={CircularButton.Type.NEGATIVE}
+          {...commonProps}
+        >
+          {label}
+        </CircularButton>
+      </div>
+    </>
+  );
+};
