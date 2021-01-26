@@ -101,6 +101,15 @@ export const variants = () => {
           {label}
         </CircularButton>
       </div>
+      <div className="m-b-2">
+        <div className="h4 m-b-1">Disabled</div>
+        <CircularButton {...commonProps} disabled>
+          {label}
+        </CircularButton>
+        <CircularButton {...commonProps} priority={CircularButton.Priority.SECONDARY} disabled>
+          {label}
+        </CircularButton>
+      </div>
     </>
   );
 };

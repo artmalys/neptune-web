@@ -13,7 +13,11 @@ const CircularButton = ({ className, children, disabled, icon, priority, type, .
   const iconEl = icon.props.size !== 24 ? cloneElement(icon, { size: 24 }) : icon;
 
   return (
-    <label className={`np-circular-btn ${priority} ${type} ${className}`}>
+    <label
+      className={`np-circular-btn ${priority} ${type} ${
+        (disabled && 'disabled') || ''
+      } ${className}`}
+    >
       <input
         type="button"
         aria-label={children}
@@ -27,7 +31,10 @@ const CircularButton = ({ className, children, disabled, icon, priority, type, .
   );
 };
 
-CircularButton.Priority = Priority;
+CircularButton.Priority = {
+  PRIMARY: Priority.PRIMARY,
+  SECONDARY: Priority.SECONDARY,
+};
 CircularButton.Type = ControlType;
 
 CircularButton.propTypes = {
