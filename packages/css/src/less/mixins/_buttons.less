@@ -15,6 +15,7 @@
   background-color: @background;
   border-color: @border;
   transition: all 0.15s ease-in-out;
+  transition-property: color, border-color, background-color;
 
   &:focus,
   &.focus {
@@ -56,9 +57,14 @@
     &.focus,
     &:active,
     &.active {
-      background-color: @btn-disabled-bg;
-          border-color: @btn-disabled-bg;
-                 color: @btn-disabled-color;
+        background-color: @btn-disabled-bg;
+            border-color: @btn-disabled-bg;
+                   color: @btn-disabled-color;
+      &.btn-priority-2 {
+        background-color: @background;
+            border-color: @btn-disabled-color;
+                   color: @btn-disabled-color;
+      }
     }
   }
 

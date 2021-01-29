@@ -47,7 +47,7 @@ export const variants = () => {
     loading,
     block,
     htmlType,
-    onClick: action('Button Clicked'),
+    onClick: action('Button clicked'),
   };
 
   return (
@@ -67,6 +67,12 @@ export const variants = () => {
         <div className="h4 m-b-1">Negative</div>
         <Button priority={Button.Priority.PRIMARY} type={Button.Type.NEGATIVE} {...commonProps} />
         <Button priority={Button.Priority.SECONDARY} type={Button.Type.NEGATIVE} {...commonProps} />
+      </div>
+      <div className="m-b-2">
+        <div className="h4 m-b-1">Disabled</div>
+        <Button {...commonProps} disabled />
+        <Button priority={Button.Priority.SECONDARY} {...commonProps} disabled />
+        <Button priority={Button.Priority.TERTIARY} {...commonProps} disabled />
       </div>
     </>
   );
