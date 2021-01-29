@@ -3,6 +3,116 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.6](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@9.0.5...@transferwise/neptune-docs@9.0.6) (2021-01-28)
+
+**Note:** Version bump only for package @transferwise/neptune-docs
+
+
+
+
+
+## [9.0.5](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@9.0.4...@transferwise/neptune-docs@9.0.5) (2021-01-28)
+
+**Note:** Version bump only for package @transferwise/neptune-docs
+
+
+
+
+
+## [9.0.4](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@9.0.3...@transferwise/neptune-docs@9.0.4) (2021-01-27)
+
+**Note:** Version bump only for package @transferwise/neptune-docs
+
+
+
+
+
+## [9.0.3](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@9.0.2...@transferwise/neptune-docs@9.0.3) (2021-01-27)
+
+**Note:** Version bump only for package @transferwise/neptune-docs
+
+
+
+
+
+## [9.0.2](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@9.0.1...@transferwise/neptune-docs@9.0.2) (2021-01-25)
+
+**Note:** Version bump only for package @transferwise/neptune-docs
+
+
+
+
+
+## [9.0.1](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@9.0.0...@transferwise/neptune-docs@9.0.1) (2021-01-25)
+
+**Note:** Version bump only for package @transferwise/neptune-docs
+
+
+
+
+
+# [9.0.0](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@8.3.8...@transferwise/neptune-docs@9.0.0) (2021-01-22)
+
+
+* refactor!: improving FlowNavigation and Checkbox (#765) ([d52212d](https://github.com/transferwise/neptune-web/commit/d52212d13e9c822e7c1d24e5dc4d4bf49ac14814)), closes [#765](https://github.com/transferwise/neptune-web/issues/765) [#724](https://github.com/transferwise/neptune-web/issues/724)
+
+
+### BREAKING CHANGES
+
+* FlowNavigation refactor
+- removed avatarURL and profileType props, replaced with avatar prop
+- removed done prop
+- removed theme prop
+* CheckboxButton now requires an onChange handler, and people using it directly should provide an aria-label
+
+* test: update test
+
+Co-authored-by: andreapiras <16908937+andreapiras@users.noreply.github.com>
+
+
+
+
+
+## [8.3.8](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@8.3.7...@transferwise/neptune-docs@8.3.8) (2021-01-19)
+
+**Note:** Version bump only for package @transferwise/neptune-docs
+
+
+
+
+
+## [8.3.7](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@8.3.6...@transferwise/neptune-docs@8.3.7) (2021-01-14)
+
+**Note:** Version bump only for package @transferwise/neptune-docs
+
+
+
+
+
+## [8.3.6](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@8.3.5...@transferwise/neptune-docs@8.3.6) (2021-01-12)
+
+**Note:** Version bump only for package @transferwise/neptune-docs
+
+
+
+
+
+## [8.3.5](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@8.3.4...@transferwise/neptune-docs@8.3.5) (2021-01-11)
+
+**Note:** Version bump only for package @transferwise/neptune-docs
+
+
+
+
+
+## [8.3.4](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@8.3.3...@transferwise/neptune-docs@8.3.4) (2021-01-07)
+
+**Note:** Version bump only for package @transferwise/neptune-docs
+
+
+
+
+
 ## [8.3.3](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@8.3.2...@transferwise/neptune-docs@8.3.3) (2020-12-18)
 
 **Note:** Version bump only for package @transferwise/neptune-docs
