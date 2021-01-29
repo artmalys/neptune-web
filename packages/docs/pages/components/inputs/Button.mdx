@@ -2,8 +2,6 @@ import { LiveEditorBlock, GeneratePropsTable } from '../../../utils';
 import { Button } from '@transferwise/components';
 import code from '../../../liveEditorCode/button.code';
 
-Simple wrapper component for all button types and their states.
-
 <LiveEditorBlock code={code} scope={{ Button }} />
 <GeneratePropsTable componentName="Button" />
 
@@ -23,14 +21,16 @@ Simple wrapper component for all button types and their states.
         <th>Accent</th>
         <th>Primary</th>
         <td>
-          <Button block={true}>Continue</Button>
+          <Button block={true} onClick={() => {}}>
+            Continue
+          </Button>
         </td>
       </tr>
       <tr>
         <th>Accent</th>
         <th>Secondary</th>
         <td>
-          <Button priority="secondary" block={true}>
+          <Button priority="secondary" block={true} onClick={() => {}}>
             Convert money
           </Button>
         </td>
@@ -39,7 +39,7 @@ Simple wrapper component for all button types and their states.
         <th>Accent</th>
         <th>Tertiary</th>
         <td>
-          <Button priority="tertiary" block={true}>
+          <Button priority="tertiary" block={true} onClick={() => {}}>
             Convert money
           </Button>
         </td>
@@ -48,7 +48,7 @@ Simple wrapper component for all button types and their states.
         <th>Positive</th>
         <th>Primary</th>
         <td>
-          <Button type="positive" block={true}>
+          <Button type="positive" block={true} onClick={() => {}}>
             Send money
           </Button>
         </td>
@@ -57,7 +57,7 @@ Simple wrapper component for all button types and their states.
         <th>Positive</th>
         <th>Secondary</th>
         <td>
-          <Button type="positive" priority="secondary" block={true}>
+          <Button type="positive" priority="secondary" block={true} onClick={() => {}}>
             Confirm
           </Button>
         </td>
@@ -66,7 +66,7 @@ Simple wrapper component for all button types and their states.
         <th>Negative</th>
         <th>Primary</th>
         <td>
-          <Button type="negative" block={true}>
+          <Button type="negative" block={true} onClick={() => {}}>
             Delete
           </Button>
         </td>
@@ -74,7 +74,7 @@ Simple wrapper component for all button types and their states.
         <th>Negative</th>
         <th>Secondary</th>
         <td>
-          <Button type="negative" priority="secondary" block={true}>
+          <Button type="negative" priority="secondary" block={true} onClick={() => {}}>
             Cancel
           </Button>
         </td>
