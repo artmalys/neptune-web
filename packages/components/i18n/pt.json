@@ -1,10 +1,10 @@
 {
   "neptune.CloseButton.ariaLabel": "Fechar",
   "neptune.MoneyInput.Select.placeholder": "Escolha uma opção...",
-  "neptune.Pagination.ariaLabel": "Navegação da paginação",
+  "neptune.Pagination.ariaLabel": "Página de navegação",
   "neptune.PaginationLink.ariaLabel.active": "Ir para a página {pageNumber}",
   "neptune.PaginationLink.ariaLabel.inactive": "Página atual, página {pageNumber}",
-  "neptune.Upload.csButtonText": "Faça upload de outro documento?",
+  "neptune.Upload.csButtonText": "Enviar outro documento?",
   "neptune.Upload.csFailureText": "Falha no envio. Por favor, tente novamente",
   "neptune.Upload.csSuccessText": "Envio concluído!",
   "neptune.Upload.csTooLargeMessage": "Por favor, envie um arquivo com menos de 5MB",
