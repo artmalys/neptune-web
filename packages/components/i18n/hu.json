@@ -2,8 +2,8 @@
   "neptune.CloseButton.ariaLabel": "Bezárás",
   "neptune.MoneyInput.Select.placeholder": "Válassz ki egy lehetőséget...",
   "neptune.Pagination.ariaLabel": "Lapszámos navigáció",
-  "neptune.PaginationLink.ariaLabel.active": "Ugrás a(z) {pageNumber} oldalra",
-  "neptune.PaginationLink.ariaLabel.inactive": "Ez az oldal, {pageNumber} oldal",
+  "neptune.PaginationLink.ariaLabel.active": "Ugrás a(z) {pageNumber}. oldalra",
+  "neptune.PaginationLink.ariaLabel.inactive": "Jelenlegi oldal, {pageNumber}. oldal",
   "neptune.Upload.csButtonText": "Másik fájl feltöltése?",
   "neptune.Upload.csFailureText": "Feltöltés sikertelen. Kérünk, próbáld újra",
   "neptune.Upload.csSuccessText": "Feltöltés sikeres",
@@ -11,7 +11,7 @@
   "neptune.Upload.csWrongTypeMessage": "Nem támogatott fájltípus. Kérünk, próbáld újra másik fájllal",
   "neptune.Upload.psButtonText": "Mégsem",
   "neptune.Upload.psProcessingText": "Feltöltés...",
-  "neptune.Upload.usButtonText": "Vagy fájl kiválasztása",
+  "neptune.Upload.usButtonText": "Vagy válaszd ki a fájlt",
   "neptune.Upload.usDropMessage": "Húzd ide a fájlokat a feltöltéshez",
   "neptune.Upload.usPlaceholder": "Húzz ide egy 5MB-nál kisebb fájlt"
 }
