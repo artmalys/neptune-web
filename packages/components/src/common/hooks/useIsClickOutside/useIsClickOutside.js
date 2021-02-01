@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export const useIsClickOutside = ({ ref }) => {
-  const [isClickOutside, setIsClickOutside] = useState(false);
+  const [isClickOutside, setIsClickOutside] = useState(true);
 
   useEffect(() => {
     const updateIsClickOutside = (event) => {
@@ -13,7 +13,7 @@ export const useIsClickOutside = ({ ref }) => {
     };
     document.addEventListener('click', updateIsClickOutside, true);
 
-    return () => document.addEventListener('click', updateIsClickOutside, true);
+    return () => document.removeEventListener('click', updateIsClickOutside, true);
   }, []);
 
   return [isClickOutside];

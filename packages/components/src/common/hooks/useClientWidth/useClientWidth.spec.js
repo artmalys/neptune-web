@@ -28,7 +28,7 @@ describe('useClientWidth', () => {
     });
 
     it('updates the ref width on window resize', () => {
-      const ref = { current: { clientWidth: 500 } };
+      const ref = { current: document.createElement('BUTTON') };
       const { result } = renderHook(() => useClientWidth({ ref }));
 
       expect(result.current).toEqual([500]);
@@ -38,6 +38,12 @@ describe('useClientWidth', () => {
         fireEvent(window, new Event('resize'));
       });
       expect(result.current).toEqual([700]);
+
+      act(() => {
+        ref.current.clientWidth = 800;
+        fireEvent(window, new Event('resize'));
+      });
+      expect(result.current).toEqual([800]);
     });
   });
 
