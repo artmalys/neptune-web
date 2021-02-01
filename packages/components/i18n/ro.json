@@ -8,7 +8,7 @@
   "neptune.Upload.csFailureText": "Încărcare eșuată. Te rugăm să încerci din nou",
   "neptune.Upload.csSuccessText": "Încărcare completă!",
   "neptune.Upload.csTooLargeMessage": "Te rugăm să furnizezi un fișier mai mic de 5MB",
-  "neptune.Upload.csWrongTypeMessage": "Tipul de fișier nu a fost acceptată. Te rugăm să încerci din nou cu un alt fișier",
+  "neptune.Upload.csWrongTypeMessage": "Tipul de fișier nu a fost acceptat. Te rugăm să încerci din nou cu un alt fișier",
   "neptune.Upload.psButtonText": "Anulează",
   "neptune.Upload.psProcessingText": "Se încarcă...",
   "neptune.Upload.usButtonText": "Sau selectează un fișier",
