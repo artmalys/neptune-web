@@ -8,7 +8,7 @@
   "neptune.Upload.csFailureText": "Caricamento fallito. Per favore riprova",
   "neptune.Upload.csSuccessText": "Caricamento completato!",
   "neptune.Upload.csTooLargeMessage": "Carica un file più piccolo di 5MB",
-  "neptune.Upload.csWrongTypeMessage": "Tipo di documento non supportato. Riprova con un formato diverso",
+  "neptune.Upload.csWrongTypeMessage": "Tipo di documento non supportato. Riprova con uno diverso",
   "neptune.Upload.psButtonText": "Annulla",
   "neptune.Upload.psProcessingText": "Caricamento...",
   "neptune.Upload.usButtonText": "O seleziona un documento",
