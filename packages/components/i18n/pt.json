@@ -1,7 +1,7 @@
 {
   "neptune.CloseButton.ariaLabel": "Fechar",
   "neptune.MoneyInput.Select.placeholder": "Escolha uma opção...",
-  "neptune.Pagination.ariaLabel": "Página de navegação",
+  "neptune.Pagination.ariaLabel": "Navegação pelas páginas",
   "neptune.PaginationLink.ariaLabel.active": "Ir para a página {pageNumber}",
   "neptune.PaginationLink.ariaLabel.inactive": "Página atual, página {pageNumber}",
   "neptune.Upload.csButtonText": "Enviar outro documento?",
