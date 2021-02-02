@@ -12,6 +12,6 @@
   "neptune.Upload.psButtonText": "Batalkan",
   "neptune.Upload.psProcessingText": "Mengunggah...",
   "neptune.Upload.usButtonText": "Atau pilih file",
-  "neptune.Upload.usDropMessage": "Jatuhkan file untuk mulai mengunggah",
+  "neptune.Upload.usDropMessage": "Letakkan file untuk mulai mengunggah",
   "neptune.Upload.usPlaceholder": "Geser dan letakkan file berukuran kurang dari 5MB"
 }
