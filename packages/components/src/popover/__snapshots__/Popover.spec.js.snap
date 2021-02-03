@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popover on desktop renders 1`] = `
+<div>
+  <span
+    class="d-inline-block"
+  >
+    <button
+      type="button"
+    >
+      Open
+    </button>
+    <div
+      class="np-popover"
+    >
+      <div
+        class="np-popover__dropdown"
+        data-popper-escaped="true"
+        data-popper-placement="bottom"
+        data-popper-reference-hidden="true"
+        style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 12px);"
+      >
+        <div
+          class="np-popover__dropdown__arrow"
+          style="position: absolute; left: 0px; transform: translate(5px, 0px);"
+        />
+        <div
+          class="np-popover__content"
+        >
+          <div
+            class="h5"
+          >
+            title
+          </div>
+          content
+        </div>
+      </div>
+    </div>
+  </span>
+</div>
+`;
+
+exports[`Popover on mobile renders 1`] = `
+<div>
+  <span
+    class="d-inline-block"
+  >
+    <button
+      type="button"
+    >
+      Open
+    </button>
+    <div
+      class="np-popover"
+    >
+      <div
+        class="bottom-sheet"
+      >
+        <div
+          class="np-popover__content"
+        >
+          <div
+            class="h5"
+          >
+            title
+          </div>
+          content
+        </div>
+      </div>
+    </div>
+  </span>
+</div>
+`;

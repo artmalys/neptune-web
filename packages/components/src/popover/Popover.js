@@ -9,14 +9,14 @@ import { useClientWidth, useIsClickOutside } from '../common/hooks';
 
 import './Popover.css';
 
-const Popover = ({ arrow, children, content, intialOpen, placement, title }) => {
+const Popover = ({ arrow, children, content, initialOpen, placement, title }) => {
   const [arrowElement, setArrowElement] = useState(null);
   const [clientWidth] = window ? useClientWidth({ ref: window }) : 0;
   const referenceElement = useRef(null);
-  const isClickOutside = useIsClickOutside({
+  const [isClickOutside] = useIsClickOutside({
     ref: referenceElement,
   });
-  const [open, setOpen] = useState(intialOpen || false);
+  const [open, setOpen] = useState(initialOpen || false);
   const [popperElement, setPopperElement] = useState(null);
 
   useEffect(() => {
@@ -95,7 +95,7 @@ Popover.Placement = {
 
 Popover.defaultProps = {
   arrow: true,
-  intialOpen: false,
+  initialOpen: false,
   placement: Popover.Placement.TOP,
   title: undefined,
 };
@@ -104,7 +104,7 @@ Popover.propTypes = {
   arrow: Types.bool,
   children: Types.element.isRequired,
   content: Types.node.isRequired,
-  intialOpen: Types.bool,
+  initialOpen: Types.bool,
   placement: Types.oneOf([
     Popover.Placement.TOP,
     Popover.Placement.RIGHT,
