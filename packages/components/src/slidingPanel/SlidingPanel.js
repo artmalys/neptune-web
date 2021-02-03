@@ -12,6 +12,7 @@ const SlidingPanel = ({
   children,
   slidingPanelPositionFixed,
   showSlidingPanelBorder,
+  transparent,
   ...props
 }) => (
   <CSSTransition
@@ -24,6 +25,7 @@ const SlidingPanel = ({
       showSlidingPanelBorder && `sliding-panel--border-${position}`,
       {
         'sliding-panel--fixed': slidingPanelPositionFixed,
+        'sliding-panel--transparent': transparent,
       },
       'sliding-panel',
     )}
@@ -39,6 +41,7 @@ SlidingPanel.propTypes = {
   slidingPanelPositionFixed: Types.bool,
   showSlidingPanelBorder: Types.bool,
   position: Types.oneOf(['top', 'bottom', 'left', 'right']),
+  transparent: Types.bool,
   children: Types.node,
 };
 
@@ -47,6 +50,7 @@ SlidingPanel.defaultProps = {
   slidingPanelPositionFixed: false,
   showSlidingPanelBorder: false,
   position: 'left',
+  transparent: false,
   children: null,
 };
 
