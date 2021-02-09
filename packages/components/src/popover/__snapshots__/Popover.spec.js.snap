@@ -13,26 +13,28 @@ exports[`Popover on desktop renders 1`] = `
     <div
       class="np-popover"
     >
-      <div
-        class="np-popover__dropdown"
-        data-popper-escaped="true"
-        data-popper-placement="bottom"
-        data-popper-reference-hidden="true"
-        style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 12px);"
-      >
+      <div>
         <div
-          class="np-popover__dropdown__arrow"
-          style="position: absolute; left: 0px; transform: translate(5px, 0px);"
-        />
-        <div
-          class="np-popover__content"
+          class="np-popover__dropdown"
+          data-popper-escaped="true"
+          data-popper-placement="bottom"
+          data-popper-reference-hidden="true"
+          style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 12px);"
         >
           <div
-            class="h5"
+            class="np-popover__dropdown__arrow"
+            style="position: absolute; left: 0px; transform: translate(5px, 0px);"
+          />
+          <div
+            class="np-popover__content"
           >
-            title
+            <div
+              class="h5"
+            >
+              title
+            </div>
+            content
           </div>
-          content
         </div>
       </div>
     </div>

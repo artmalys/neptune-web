@@ -5,11 +5,16 @@ export const useIsClickOutside = ({ ref }) => {
 
   useEffect(() => {
     const updateIsClickOutside = (event) => {
-      if (ref && !ref.current.contains(event.target)) {
-        setIsClickOutside(true);
-      } else {
-        setIsClickOutside(false);
-      }
+      let isClickOutsideElements = true;
+
+      // If the click is triggered from at least one of the elements provided set isClickOutsideElements to false
+      ref.forEach((el) => {
+        if (el?.current?.contains(event.target)) {
+          isClickOutsideElements = false;
+        }
+      });
+
+      setIsClickOutside(isClickOutsideElements);
     };
     document.addEventListener('click', updateIsClickOutside, true);
 

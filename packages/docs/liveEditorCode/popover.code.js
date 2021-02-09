@@ -1,10 +1,14 @@
 <Popover
-  intialOpen={false}
   title="Guaranteed rate"
   content="You’ll get this rate as long as we receive your 10 EUR within the next 51 hours."
-  placement={Popover.Placement.BOTTOM}
+  preferredPlacement={Popover.Placement.BOTTOM}
 >
-  <Button type={Button.Type.PRIMARY} onClick={() => console.log("I'm replaced")}>
+  <Button
+    onClick={() => console.log('clicked')}
+    disabled={false}
+    block={false}
+    size={Button.Size.Medium}
+  >
     Click here to Open Popover!
   </Button>
 </Popover>;
