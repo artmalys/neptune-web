@@ -5,7 +5,7 @@ import { render, screen } from '../test-utils';
 
 import FlowNavigation from '.';
 import { Breakpoint } from '../common';
-import Logo from '../common/logo';
+
 import Avatar from '../avatar';
 
 jest.mock('lodash.throttle', () => jest.fn((fn) => fn));
@@ -18,12 +18,6 @@ jest.mock('./backButton', () => {
   // eslint-disable-next-line react/prop-types
   return ({ className, label }) => <div className={className}>BackButton{label}</div>;
 });
-jest.mock('../common/logo', () => {
-  // eslint-disable-next-line react/prop-types
-  const mockedLogo = ({ className, type }) => <div className={className}>Logo {type}</div>;
-  mockedLogo.Type = { FULL: 'FULL', FLAG: 'FLAG' };
-  return mockedLogo;
-});
 
 describe('FlowNavigation', () => {
   const originalClientWidth = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'clientWidth');
@@ -34,7 +28,7 @@ describe('FlowNavigation', () => {
     });
   };
   beforeEach(() => {
-    resetClientWidth(Breakpoint.MEDIUM + 1);
+    resetClientWidth(Breakpoint.LARGE + 1);
   });
 
   afterAll(() => {
@@ -47,7 +41,7 @@ describe('FlowNavigation', () => {
         TM
       </Avatar>
     ),
-    logo: <Logo type={Logo.Type.FULL} />,
+    logo: <img alt="logo" src="logo.svg" width="138" height="24" />,
     onClose: jest.fn(),
     steps: [
       {
@@ -83,28 +77,87 @@ describe('FlowNavigation', () => {
     expect(container.querySelector('.separator')).not.toBeInTheDocument();
   });
 
+  it(`doesn't render separator if done is true `, () => {
+    const { container, rerender } = render(<FlowNavigation {...props} onClose={null} />);
+
+    expect(container.querySelector('.separator')).not.toBeInTheDocument();
+
+    rerender(<FlowNavigation {...props} avatar={null} done />);
+
+    expect(container.querySelector('.separator')).not.toBeInTheDocument();
+  });
+
+  it(`renders border based on done `, () => {
+    const { container, rerender } = render(<FlowNavigation {...props} onClose={null} />);
+
+    expect(container.querySelector('.np-flow-navigation--border-bottom')).toBeInTheDocument();
+
+    rerender(<FlowNavigation {...props} avatar={null} done />);
+
+    expect(container.querySelector('.np-flow-navigation--border-bottom')).not.toBeInTheDocument();
+  });
+
+  it(`hides stepper when done is true`, () => {
+    const { container, rerender } = render(<FlowNavigation {...props} onClose={null} />);
+
+    expect(container.querySelector('.np-flow-navigation__stepper')).toBeInTheDocument();
+
+    rerender(<FlowNavigation {...props} avatar={null} done />);
+
+    expect(container.querySelector('.np-flow-navigation__stepper')).not.toBeInTheDocument();
+  });
+
+  it(`renders xs-max class`, () => {
+    resetClientWidth(Breakpoint.SMALL - 1);
+    const { container } = render(<FlowNavigation {...props} onClose={null} />);
+
+    expect(container.querySelector('.np-flow-navigation--xs-max')).toBeInTheDocument();
+  });
+
+  it(`renders sm class`, () => {
+    resetClientWidth(Breakpoint.SMALL);
+    const { container } = render(<FlowNavigation {...props} onClose={null} />);
+
+    expect(container.querySelector('.np-flow-navigation--sm')).toBeInTheDocument();
+  });
+
+  it(`renders lg class`, () => {
+    resetClientWidth(Breakpoint.LARGE);
+    const { container } = render(<FlowNavigation {...props} onClose={null} />);
+
+    expect(container.querySelector('.np-flow-navigation--lg')).toBeInTheDocument();
+  });
+
   describe('on mobile', () => {
     beforeEach(() => {
-      resetClientWidth(Breakpoint.MEDIUM - 1);
+      resetClientWidth(Breakpoint.LARGE - 1);
     });
 
     it('renders as expected', () => {
       expect(render(<FlowNavigation {...props} />).container).toMatchSnapshot();
     });
 
-    it(`renders Logo ${Logo.Type.FLAG} if onGoBack is not provided and activeStep = 0`, () => {
-      const { rerender } = render(<FlowNavigation {...props} />);
+    it(`renders flag if activeStep <= 0 onGoBack or is not provided`, () => {
+      const { container, rerender } = render(
+        <FlowNavigation {...props} activeStep={0} onGoBack={undefined} />,
+      );
 
-      expect(logoFlag().parentElement).toHaveClass('visible-xs');
-      expect(logoFlag()).toHaveClass('np-flow-navigation--logo__display');
+      const flag = container.querySelector('.np-flow-navigation--flag');
 
-      rerender(<FlowNavigation {...props} activeStep={1} />);
+      expect(flag.parentElement).toHaveClass('visible-xs');
+      expect(flag).toHaveClass('np-flow-navigation--flag__display');
 
-      expect(logoFlag().parentElement).toHaveClass('visible-xs');
+      rerender(<FlowNavigation {...props} activeStep={1} onGoBack={undefined} />);
+
+      expect(flag).toHaveClass('np-flow-navigation--flag__display');
+
+      rerender(<FlowNavigation {...props} activeStep={0} onGoBack={jest.fn()} />);
+
+      expect(flag).toHaveClass('np-flow-navigation--flag__display');
 
       rerender(<FlowNavigation {...props} onGoBack={jest.fn()} activeStep={1} />);
 
-      expect(logoFlag()).toHaveClass('np-flow-navigation--logo__hidden');
+      expect(flag).toHaveClass('np-flow-navigation--flag__hidden');
     });
 
     it('renders BackButton with AnimatedLabel if onGoBack is provided and activeStep > 0', () => {
@@ -121,6 +174,5 @@ describe('FlowNavigation', () => {
       expect(screen.getByText('AnimatedLabel')).toBeInTheDocument();
     });
   });
-  const logoFlag = () => screen.getByText(`Logo ${Logo.Type.FLAG}`);
-  const logoFull = () => screen.getByText(`Logo ${Logo.Type.FULL}`);
+  const logoFull = () => screen.getByAltText(`logo`);
 });
