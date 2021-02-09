@@ -1,6 +1,6 @@
 {
   "name": "@transferwise/neptune-docs",
-  "version": "10.0.12",
+  "version": "10.0.15",
   "description": "TransferWise Design System",
   "main": "index.js",
   "private": true,
@@ -16,9 +16,8 @@
     "docs:deploy": "npm-run-all deploy:*",
     "deploy:export": "next export -o docs-build && touch docs-build/.nojekyll",
     "deploy:gh-pages": "deploy-to-github-pages -d docs-build -m main",
-    "lint": "eslint components/ pages/ utils/",
-    "lint:fix": "yarn lint --fix",
-    "test": "jest --config ../../node_modules/@transferwise/test-config/test/jest.lint.js"
+    "lint": "jest --maxWorkers=4 --config ../../node_modules/@transferwise/test-config/test/jest.lint.js",
+    "lint:fix": "eslint components/ pages/ utils/ --fix"
   },
   "repository": {
     "type": "git",
@@ -39,11 +38,11 @@
     "@mapbox/rehype-prism": "^0.5.0",
     "@mdx-js/loader": "^1.5.8",
     "@next/mdx": "^9.0.5",
-    "@transferwise/components": "^34.2.4",
-    "@transferwise/dynamic-flows": "^11.2.0",
+    "@transferwise/components": "^34.2.7",
+    "@transferwise/dynamic-flows": "^11.2.3",
     "@transferwise/icons": "^2.6.0",
     "@transferwise/neptune-css": "^8.1.0",
-    "@transferwise/test-config": "^3.0.0",
+    "@transferwise/test-config": "^3.0.1",
     "@zeit/next-css": "^1.0.1",
     "bootstrap": "github:transferwise/bootstrap#semver:^5.20.0",
     "currency-flags": "^2.1.1",

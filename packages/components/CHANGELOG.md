@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [34.2.7](https://github.com/transferwise/neptune-web/compare/@transferwise/components@34.2.6...@transferwise/components@34.2.7) (2021-02-08)
+
+**Note:** Version bump only for package @transferwise/components
+
+
+
+
+
+## [34.2.6](https://github.com/transferwise/neptune-web/compare/@transferwise/components@34.2.5...@transferwise/components@34.2.6) (2021-02-08)
+
+**Note:** Version bump only for package @transferwise/components
+
+
+
+
+
+## [34.2.5](https://github.com/transferwise/neptune-web/compare/@transferwise/components@34.2.4...@transferwise/components@34.2.5) (2021-02-08)
+
+
+### Bug Fixes
+
+* add min-height to prevent jumping ([#794](https://github.com/transferwise/neptune-web/issues/794)) ([bcd2628](https://github.com/transferwise/neptune-web/commit/bcd26282ada8daf64b2f6369b1b96125cbbbaead))
+
+
+
+
+
 ## [34.2.4](https://github.com/transferwise/neptune-web/compare/@transferwise/components@34.2.3...@transferwise/components@34.2.4) (2021-02-03)
 
 
